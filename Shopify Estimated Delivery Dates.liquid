@@ -1,0 +1,18 @@
+<h3 style="font-size: 16px;margin-top: 10px;text-transform: capitalize;">
+    <img src="#icon path" style="height:25px;margin-right:10px;"/>
+    Get it between <strong><span style="color: #ae0100;" id="fromDate"></span> - <span style="color: #ae0100;" id="toDate"></span></strong>
+</h3>
+    {{ '//cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js' | script_tag }}
+    <script>
+    var fromDate = Date.today().addDays(7);
+    if (fromDate.is().saturday() || fromDate.is().sunday()) {
+    fromDate = fromDate.next().monday();
+    }
+    var toDate = Date.today().addDays(10);
+    if (toDate.is().saturday() || toDate.is().sunday()) {
+    toDate = toDate.next().monday();
+    }
+    document.getElementById('fromDate').innerHTML = fromDate.toString('dddd MMMM dS');
+    document.getElementById('toDate').innerHTML = toDate.toString('dddd MMMM dS');
+    </script>
+    
